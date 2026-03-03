@@ -1,84 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dipheko Motors – About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; font-family: 'Barlow', sans-serif; background: #0b0b0b; color: #f2f0ed; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
 
-<meta charset="UTF-8">
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; height: 70px; z-index: 100;
+      display: flex; align-items: center; padding: 0 5%;
+      background: rgba(11,11,11,0.96); border-bottom: 1px solid rgba(192,0,26,0.25);
+    }
+    .logo-main { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: 4px; color: #f2f0ed; }
+    .logo-sub  { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 5px; color: #c0001a; margin-left: 8px; }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; margin-left: 4rem; }
+    .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #888; padding-bottom: 4px; position: relative; transition: color 0.2s; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: #c0001a; transform: scaleX(0); transition: transform 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #f2f0ed; }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .page {
+      padding-top: 70px; min-height: 100vh; position: relative;
+      background: radial-gradient(ellipse 70% 60% at 65% 50%, rgba(192,0,26,0.07) 0%, transparent 70%), #0b0b0b;
+    }
+    .bg-logo {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+      font-size: clamp(8rem, 20vw, 20rem); letter-spacing: 0.05em;
+      color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+      white-space: nowrap; pointer-events: none; user-select: none; z-index: 0;
+    }
 
-<title>About Me</title>
+    .content { position: relative; z-index: 1; padding: 60px 6%; max-width: 900px; }
 
-<!-- Bootstrap CSS -->
+    .page-tag { font-size: 0.75rem; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #c0001a; margin-bottom: 10px; animation: fadeUp 0.7s ease both; }
+    .page-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800; line-height: 1; margin-bottom: 40px; animation: fadeUp 0.7s ease both; }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    .about-intro {
+      font-size: 1.15rem; font-weight: 300; color: #ccc; line-height: 1.9;
+      margin-bottom: 56px; border-left: 3px solid #c0001a; padding-left: 24px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
 
-<link rel="stylesheet" href="styles.css">
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      margin-bottom: 56px; animation: fadeUp 0.7s 0.2s ease both;
+    }
 
+    .about-card {
+      background: #141414; border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px; padding: 28px;
+      transition: border-color 0.25s;
+    }
+    .about-card:hover { border-color: rgba(192,0,26,0.4); }
+    .about-card-icon { font-size: 2rem; margin-bottom: 14px; }
+    .about-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 8px; }
+    .about-card p { font-size: 0.9rem; color: #888; line-height: 1.7; }
+
+    .story-section { animation: fadeUp 0.7s 0.3s ease both; }
+    .story-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 16px; }
+    .story-section p { font-size: 0.95rem; color: #999; line-height: 1.9; margin-bottom: 16px; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
-
 <body>
 
-<header>
+  <nav>
+    <span class="logo-main">DIPHEKO</span>
+    <span class="logo-sub">MOTORS</span>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Inventory</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cardetails.html">Car Details</a></li>
+      <li><a href="shop.html">Shop Now</a></li>
+      
+    </ul>
+  </nav>
 
-<h1>About Us</h1>
+  <div class="page">
+    <div class="bg-logo" aria-hidden="true">DIPHEKO</div>
+    <div class="content">
+      <p class="page-tag">Who We Are</p>
+      <h1 class="page-title">About Us</h1>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-<div class="container">
-
-<a class="navbar-brand" href="index.html">DIPHEKO MOTORS</a>
-
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-
-<span class="navbar-toggler-icon"></span>
-
-</button>
-
-<div class="collapse navbar-collapse" id="navbarNav">
-
-<ul class="navbar-nav">
-
-<li class="nav-item">
-
-<a class="nav-link" href="index.html">Home</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link" href="about.html">About</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link" href="inventory.html">Inventory</a>
-
-</li>
-
-<li class="nav-item">
-
-<a class="nav-link" href="contact.html">Contact</a>
-
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</nav>
-
-</header>
-
-
-<main class="container my-5">
-    <h2>About Us</h2>
-
-<p>Dipheko Motors was founded with a simple but powerful vision — to bring quality, reliable vehicles to the people of Botswana while delivering service built on honesty and respect.
+      <p class="about-intro">
+        <p></p>Dipheko Motors was founded with a simple but powerful vision — to bring quality, reliable vehicles to the people of Botswana while delivering service built on honesty and respect.
 
 Born and raised in Botswana, the founder of Dipheko Motors saw the need for a dealership that truly understands local drivers — our roads, our economy, and our lifestyle. What started as a passion for cars and entrepreneurship grew into a mission: to create a dealership where customers feel valued, not pressured.
 
@@ -86,7 +102,10 @@ At Dipheko Motors, we understand that buying a car is not just a purchase — it
 
 We proudly serve customers across Gaborone and surrounding areas, helping young professionals, families, and business owners find vehicles that match their ambitions and budgets.
 
+
+
 <p>Our commitment is simple:</p>
+
 
 <P>✔️ Transparent and honest pricing</P>
 <P>✔️ Quality vehicles you can trust</P>
@@ -105,18 +124,10 @@ We proudly serve customers across Gaborone and surrounding areas, helping young 
 </main>
 
 
-<footer>
-
-<p>&copy; 2026 Leatile Dipheko</p>
-
-</footer>
-
-<!-- Bootstrap JS and dependencies -->
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+     
+      </div>
+    </div>
+  </div>
 
 </body>
-
 </html>
